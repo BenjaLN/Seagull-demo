@@ -5,10 +5,8 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { StatusBadge } from "./StatusBadge"
 import { formatDateTime, formatCurrency } from "@/lib/format"
-import { Calendar, Phone, User, MapPin, Ship, Plus } from "lucide-react"
+import { Calendar, Phone, MapPin, Ship, Plus } from "lucide-react"
 import { MockBooking } from "@/lib/mock"
 import {
   AlertDialog,
@@ -31,24 +29,18 @@ import {
 
 interface BookingsListProps {
   bookings: MockBooking[]
-  onCheckIn?: (bookingId: string) => void
-  onCheckOut?: (bookingId: string) => void
   onCancel?: (bookingId: string) => void
-  onDetails?: (bookingId: string) => void
   onBerthClick?: (berthId: string) => void
   onCreateBooking?: (booking: Omit<MockBooking, 'id' | 'created_at' | 'updated_at'>) => void
 }
 
 export function BookingsList({ 
   bookings, 
-  onCheckIn, 
-  onCheckOut, 
   onCancel, 
-  onDetails,
   onBerthClick,
   onCreateBooking
 }: BookingsListProps) {
-  const [statusFilter, setStatusFilter] = useState<string>("all")
+  const [statusFilter] = useState<string>("all")
   const [cancelDialogOpen, setCancelDialogOpen] = useState(false)
   const [bookingToCancel, setBookingToCancel] = useState<string | null>(null)
   const [newBookingDialogOpen, setNewBookingDialogOpen] = useState(false)

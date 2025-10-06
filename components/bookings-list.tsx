@@ -23,7 +23,7 @@ export function BookingsList({
   onCancel, 
   onDetails 
 }: BookingsListProps) {
-  const [statusFilter, setStatusFilter] = useState<string>("all")
+  const [statusFilter] = useState<string>("all")
 
   const filteredBookings = bookings.filter(booking => 
     statusFilter === "all" || booking.status === statusFilter

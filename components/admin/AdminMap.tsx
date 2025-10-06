@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import dynamic from "next/dynamic"
+import L from "leaflet"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin } from "lucide-react"
 import { MockSpot } from "@/lib/mock"
@@ -39,7 +40,7 @@ interface AdminMapProps {
 }
 
 export function AdminMap({ spots, onSpotClick, selectedSpotId, onBerthClick, selectedBerthId, id }: AdminMapProps) {
-  const mapRef = useRef<any>(null)
+  const mapRef = useRef<L.Map | null>(null)
 
   // Rungsted Havn coordinates
   const harborCenter: [number, number] = [55.88509, 12.54563]
@@ -59,6 +60,7 @@ export function AdminMap({ spots, onSpotClick, selectedSpotId, onBerthClick, sel
 
   const createCustomIcon = (color: string, isSelected: boolean = false) => {
     const size = isSelected ? 30 : 25
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require('leaflet')
     
     return L.icon({
@@ -74,6 +76,7 @@ export function AdminMap({ spots, onSpotClick, selectedSpotId, onBerthClick, sel
   }
 
   const createHarborIcon = () => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require('leaflet')
     
     // Create SVG without emoji to avoid btoa encoding issues

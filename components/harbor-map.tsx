@@ -1,7 +1,8 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 import dynamic from "next/dynamic"
+import L from "leaflet"
 import { SpotWithAvailability } from "@/lib/types"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { MapPin } from "lucide-react"
@@ -30,11 +31,10 @@ const Popup = dynamic(
 interface HarborMapProps {
   spots: SpotWithAvailability[]
   onSpotClick?: (spot: SpotWithAvailability) => void
-  selectedSpotId?: string
 }
 
-export function HarborMap({ spots, onSpotClick, selectedSpotId }: HarborMapProps) {
-  const mapRef = useRef<any>(null)
+export function HarborMap({ spots, onSpotClick }: HarborMapProps) {
+  const mapRef = useRef<L.Map | null>(null)
 
   const getMarkerColor = (status: string) => {
     switch (status) {
@@ -50,6 +50,7 @@ export function HarborMap({ spots, onSpotClick, selectedSpotId }: HarborMapProps
   }
 
   const createCustomIcon = (color: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     const L = require('leaflet')
     return L.icon({
       iconUrl: `data:image/svg+xml;base64,${btoa(`

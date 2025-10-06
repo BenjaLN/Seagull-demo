@@ -1,6 +1,5 @@
 "use client"
 
-import { useEffect } from "react"
 import dynamic from "next/dynamic"
 import { useBerthsStore } from "@/store/berths"
 import { BerthStatus } from "@/lib/berths"

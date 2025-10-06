@@ -22,7 +22,14 @@
       "static/chunks/main-app-700294188ed129c5.js",
       "static/chunks/d0deef33-08e72c68cc07d6b8.js",
       "static/chunks/485-5a9763fa11860c1f.js",
-      "static/chunks/app/admin/rungsted-havn/page-1e5669567119ace5.js"
+      "static/chunks/app/admin/rungsted-havn/page-b0a1030c906a538a.js"
+    ],
+    "/test/page": [
+      "static/chunks/webpack-0e6854eb67d3b3a4.js",
+      "static/chunks/fd9d1056-199927e130d7cc3c.js",
+      "static/chunks/117-a006037eac9c70a6.js",
+      "static/chunks/main-app-700294188ed129c5.js",
+      "static/chunks/app/test/page-0bf42471ae8fc8bc.js"
     ],
     "/page": [
       "static/chunks/webpack-0e6854eb67d3b3a4.js",
@@ -31,13 +38,6 @@
       "static/chunks/main-app-700294188ed129c5.js",
       "static/chunks/972-babb18d070b1ba0e.js",
       "static/chunks/app/page-424b799d9ac4b555.js"
-    ],
-    "/test/page": [
-      "static/chunks/webpack-0e6854eb67d3b3a4.js",
-      "static/chunks/fd9d1056-199927e130d7cc3c.js",
-      "static/chunks/117-a006037eac9c70a6.js",
-      "static/chunks/main-app-700294188ed129c5.js",
-      "static/chunks/app/test/page-0bf42471ae8fc8bc.js"
     ]
   }
 }

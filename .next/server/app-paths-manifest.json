@@ -1,9 +1,9 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/admin/rungsted-havn/page": "app/admin/rungsted-havn/page.js",
-  "/page": "app/page.js",
-  "/test/page": "app/test/page.js",
-  "/api/admin/bookings/route": "app/api/admin/bookings/route.js",
+  "/api/admin/bookings/[id]/route": "app/api/admin/bookings/[id]/route.js",
   "/api/admin/spots/[spotId]/status/route": "app/api/admin/spots/[spotId]/status/route.js",
-  "/api/admin/bookings/[id]/route": "app/api/admin/bookings/[id]/route.js"
+  "/api/admin/bookings/route": "app/api/admin/bookings/route.js",
+  "/test/page": "app/test/page.js",
+  "/page": "app/page.js"
 }

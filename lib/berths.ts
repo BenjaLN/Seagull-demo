@@ -32,12 +32,6 @@ export interface Berth {
   endDate?: string // Optional end date for manual bookings
 }
 
-// Harbor center coordinates
-const HARBOR_CENTER = {
-  lat: 55.88509,
-  lng: 12.54563
-}
-
 // Pier configurations with approximate positions relative to harbor center
 const PIER_CONFIGS: Record<Pier, { 
   startLat: number, 
@@ -112,63 +106,6 @@ function generateBerthsForPier(pier: Pier): Berth[] {
       lat: lat + latVariation,
       lng: lng + lngVariation,
       status: Math.random() > 0.3 ? "available" : "occupied" // 70% available by default
-    })
-  }
-  
-  return berths
-}
-
-/**
- * Generate bridge berths along a pier with two parallel lines
- */
-function generateBridgeBerths(
-  startLat: number, 
-  startLng: number, 
-  endLat: number, 
-  endLng: number, 
-  pierName: Pier, 
-  numBerths: number = 12,
-  offsetMeters: number = 5
-): Berth[] {
-  const berths: Berth[] = []
-  
-  // Calculate the direction vector of the pier
-  const deltaLat = endLat - startLat
-  const deltaLng = endLng - startLng
-  const pierLength = Math.sqrt(deltaLat * deltaLat + deltaLng * deltaLng)
-  
-  // Calculate perpendicular offset (90 degrees to the pier direction)
-  // For a pier running North-South (like this one), we want East-West offset
-  const offsetLat = 0  // No latitude offset for East-West movement
-  const offsetLng = offsetMeters / (111000 * Math.cos((startLat + endLat) / 2 * Math.PI / 180))
-  
-  // Generate berths along the main line (on the pier)
-  for (let i = 0; i < numBerths; i++) {
-    const t = i / (numBerths - 1)
-    const lat = startLat + (endLat - startLat) * t
-    const lng = startLng + (endLng - startLng) * t
-    
-    berths.push({
-      id: `${pierName}-${i + 1}`,
-      pier: pierName,
-      lat: lat,
-      lng: lng,
-      status: "available"
-    })
-  }
-  
-  // Generate berths along the offset line (parallel to the pier, offset to the side)
-  for (let i = 0; i < numBerths; i++) {
-    const t = i / (numBerths - 1)
-    const lat = startLat + (endLat - startLat) * t + offsetLat
-    const lng = startLng + (endLng - startLng) * t + offsetLng
-    
-    berths.push({
-      id: `${pierName}-OFFSET-${i + 1}`,
-      pier: pierName,
-      lat: lat,
-      lng: lng,
-      status: "available"
     })
   }
   

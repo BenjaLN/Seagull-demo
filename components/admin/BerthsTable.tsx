@@ -6,10 +6,9 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { StatusBadge } from "./StatusBadge"
-import { formatDateTime } from "@/lib/format"
-import { MapPin, Calendar, Clock, MoreHorizontal, Search, Filter } from "lucide-react"
+import { MapPin, Calendar, Search, Filter } from "lucide-react"
 import { useBerthsStore } from "@/store/berths"
-import { Berth, BerthStatus, Pier } from "@/lib/berths"
+import { Berth, Pier } from "@/lib/berths"
 import { MockBooking } from "@/lib/mock"
 import {
   Dialog,
@@ -45,8 +44,6 @@ export function BerthsTable({
     searchQuery,
     statusFilter
   } = useBerthsStore()
-  
-  const [areaFilter, setAreaFilter] = useState<string>("all")
 
   // Get all berths and apply filters
   const allBerths = getVisibleBerths()
@@ -75,14 +72,7 @@ export function BerthsTable({
     } else {
       setSelectedPier(pier as Pier)
     }
-    setAreaFilter(pier)
   }
-
-  // Get unique piers for filter options (only from map berths 1-125)
-  const uniquePiers = Array.from(new Set(allBerths.filter(berth => {
-    const berthNumber = parseInt(berth.id)
-    return !isNaN(berthNumber) && berthNumber >= 1 && berthNumber <= 125
-  }).map(berth => berth.pier)))
 
   // Get bookings for a specific berth
   const getBerthBookings = (berthId: string) => {

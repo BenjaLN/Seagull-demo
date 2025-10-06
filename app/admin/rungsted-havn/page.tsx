@@ -8,13 +8,10 @@ import { BookingsList } from "@/components/admin/BookingsList"
 import { Overview } from "@/components/admin/Overview"
 import { ChangeStatusModal } from "@/components/admin/ChangeStatusModal"
 import { CreateBookingModal } from "@/components/admin/CreateBookingModal"
-import { formatCurrency, formatDateTime } from "@/lib/format"
 import { mockSpots, mockBookings, mockKPIs, simulateRealtimeUpdates } from "@/lib/mock"
 import { MockSpot, MockBooking, MockKPIs } from "@/lib/mock"
 import { useBerthsStore } from "@/store/berths"
 import { Berth } from "@/lib/berths"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Clock } from "lucide-react"
 
 /**
  * Rungsted Havn Admin Dashboard
@@ -50,7 +47,7 @@ export default function RungstedHavnAdminPage() {
     }
     return mockBookings
   })
-  const [kpis, setKpis] = useState<MockKPIs>(mockKPIs)
+  const [, setKpis] = useState<MockKPIs>(mockKPIs)
   const [selectedSpot, setSelectedSpot] = useState<MockSpot | null>(null)
   const [selectedBerthId, setSelectedBerthId] = useState<string | undefined>(undefined)
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false)
@@ -121,22 +118,6 @@ export default function RungstedHavnAdminPage() {
 
   const handleSpotClick = (spot: MockSpot) => {
     setSelectedSpot(spot)
-  }
-
-  const handleStatusChange = (spotId: string) => {
-    const spot = spots.find(s => s.id === spotId)
-    if (spot) {
-      setSelectedSpot(spot)
-      setIsStatusModalOpen(true)
-    }
-  }
-
-  const handleCreateBooking = (spotId: string) => {
-    const spot = spots.find(s => s.id === spotId)
-    if (spot) {
-      setSelectedSpot(spot)
-      setIsBookingModalOpen(true)
-    }
   }
 
   const handleStatusSave = async (spotId: string, status: 'ledig' | 'optaget', expectedReturnAt?: string) => {
@@ -329,6 +310,7 @@ export default function RungstedHavnAdminPage() {
       <header className="bg-[#272E43] text-white py-4">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img 
               src="/Header 1.png" 
               alt="Rungsted Havn Header" 
@@ -388,8 +370,6 @@ export default function RungstedHavnAdminPage() {
           {/* Bookings */}
           <BookingsList
             bookings={bookings}
-            onCheckIn={(id) => handleBookingStatusUpdate(id, 'checked_in')}
-            onCheckOut={(id) => handleBookingStatusUpdate(id, 'checked_out')}
             onCancel={(id) => handleBookingStatusUpdate(id, 'cancelled')}
             onBerthClick={handleBookingBerthClick}
             onCreateBooking={handleCreateBookingFromList}
