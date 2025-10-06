@@ -52,7 +52,7 @@ export default function RungstedHavnAdminPage() {
   })
   const [kpis, setKpis] = useState<MockKPIs>(mockKPIs)
   const [selectedSpot, setSelectedSpot] = useState<MockSpot | null>(null)
-  const [selectedBerthId, setSelectedBerthId] = useState<string | null>(null)
+  const [selectedBerthId, setSelectedBerthId] = useState<string | undefined>(undefined)
   const [isStatusModalOpen, setIsStatusModalOpen] = useState(false)
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
