@@ -1,0 +1,11 @@
+   ▲ Next.js 14.0.4
+   - Local:        http://localhost:3000
+   - Network:      http://0.0.0.0:3000
+   - Environments: .env.local
+
+ ✓ Ready in 2s
+ ○ Compiling / ...
+ ✓ Compiled / in 2.9s (496 modules)
+ ✓ Compiled in 248ms (237 modules)
+ ○ Compiling /admin/rungsted-havn ...
+ ✓ Compiled /admin/rungsted-havn in 1742ms (811 modules)
