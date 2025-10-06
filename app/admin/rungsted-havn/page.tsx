@@ -282,7 +282,7 @@ export default function RungstedHavnAdminPage() {
     const now = new Date()
     const startDate = new Date(booking.start_at)
     const endDate = new Date(booking.end_at)
-    return booking.status === 'booked' && now >= startDate && now <= endDate
+    return booking.status === 'checked_in' && now >= startDate && now <= endDate
   }).length
   
   // Calculate bookings created today
