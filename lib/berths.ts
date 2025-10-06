@@ -13,11 +13,14 @@ export interface Booking {
   guest_phone: string
   start_at: string
   end_at: string
-  status: 'booked' | 'cancelled'
-  payment_status: 'paid' | 'pending' | 'failed'
+  status: 'reserved' | 'checked_in' | 'checked_out' | 'cancelled' | 'booked'
+  payment_status: 'paid' | 'pending' | 'failed' | 'refunded'
   amount: number
   created_at: string
   updated_at: string
+  boat_name?: string
+  boat_length?: number
+  boat_width?: number
 }
 
 export interface Berth {
