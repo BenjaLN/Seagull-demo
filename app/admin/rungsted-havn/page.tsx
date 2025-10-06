@@ -12,6 +12,7 @@ import { formatCurrency, formatDateTime } from "@/lib/format"
 import { mockSpots, mockBookings, mockKPIs, simulateRealtimeUpdates } from "@/lib/mock"
 import { MockSpot, MockBooking, MockKPIs } from "@/lib/mock"
 import { useBerthsStore } from "@/store/berths"
+import { Berth } from "@/lib/berths"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Clock } from "lucide-react"
 
@@ -268,10 +269,16 @@ export default function RungstedHavnAdminPage() {
     }
   }
 
-  const handleBerthClick = (berthId: string) => {
+  const handleBerthClick = (berth: Berth) => {
     // Set the selected berth (no scrolling for map clicks)
+    setSelectedBerthId(berth.id)
+    console.log(`Selected berth: ${berth.id}`)
+  }
+
+  const handleBerthClickFromMap = (berthId: string) => {
+    // Handler for map clicks (receives just the berth ID)
     setSelectedBerthId(berthId)
-    console.log(`Selected berth: ${berthId}`)
+    console.log(`Selected berth from map: ${berthId}`)
   }
 
   // Calculate available berths dynamically
@@ -369,7 +376,7 @@ export default function RungstedHavnAdminPage() {
               spots={spots}
               onSpotClick={handleSpotClick}
               selectedSpotId={selectedSpot?.id}
-              onBerthClick={handleBerthClick}
+              onBerthClick={handleBerthClickFromMap}
               selectedBerthId={selectedBerthId}
             />
           </div>
