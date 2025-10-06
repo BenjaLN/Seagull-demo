@@ -176,6 +176,9 @@ export default function RungstedHavnAdminPage() {
         status: 'reserved',
         payment_status: 'pending',
         amount: Math.floor(Math.random() * 3000) + 1000, // Random amount
+        boat_name: 'Unknown',
+        boat_length: 10.0,
+        boat_width: 3.0,
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString(),
       }
