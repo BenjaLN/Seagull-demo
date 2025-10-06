@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/badge"
 import { cn } from "@/lib/utils"
 
-type SpotStatus = 'ledig' | 'optaget'
+type SpotStatus = 'ledig' | 'optaget' | 'reserveret'
 type BookingStatus = 'booked' | 'cancelled'
 
 interface StatusBadgeProps {
@@ -16,6 +16,8 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
     switch (status) {
       case 'ledig':
         return 'success'
+      case 'reserveret':
+        return 'default'
       case 'optaget':
       case 'booked':
         return 'destructive'
@@ -30,6 +32,8 @@ export function StatusBadge({ status, className }: StatusBadgeProps) {
     switch (status) {
       case 'ledig':
         return 'Ledig'
+      case 'reserveret':
+        return 'Reserveret'
       case 'optaget':
       case 'booked':
         return 'Optaget'

@@ -1,0 +1,7 @@
+# Files and directories to ignore during Vercel build
+node_modules
+.env*.local
+.DS_Store
+*.log
+.vscode
+.idea

@@ -178,7 +178,72 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Deployment
 
-The application is ready for deployment on Vercel, Netlify, or any Next.js-compatible platform. Ensure all environment variables are configured in your deployment environment.
+### Deploy to Vercel (Recommended)
+
+This application is optimized for Vercel deployment:
+
+#### One-Click Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/yourusername/yourrepo)
+
+#### Manual Deployment
+
+1. **Install Vercel CLI** (optional)
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Push to GitHub**
+   ```bash
+   git push origin main
+   ```
+
+3. **Import Project to Vercel**
+   - Go to [vercel.com](https://vercel.com)
+   - Click "Add New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect Next.js
+
+4. **Configure Environment Variables**
+   
+   Add these environment variables in your Vercel project settings:
+   
+   **Required for Production:**
+   - `NEXT_PUBLIC_SUPABASE_URL` - Your Supabase project URL
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY` - Your Supabase anon key
+   - `SUPABASE_SERVICE_ROLE_KEY` - Your Supabase service role key
+   - `HARBOR_SLUG` - Your harbor slug (e.g., `rungsted-havn`)
+   
+   **Optional:**
+   - `USE_MOCK` - Set to `false` for production (uses real database)
+
+5. **Deploy**
+   - Click "Deploy"
+   - Vercel will build and deploy your application
+   - Your app will be live at `https://your-project.vercel.app`
+
+#### Environment Variables Setup in Vercel
+
+1. Go to your project in Vercel
+2. Click "Settings" → "Environment Variables"
+3. Add each variable from `env.example`
+4. Make sure to uncheck "USE_MOCK" or set it to `false` for production
+5. Save and redeploy
+
+#### Custom Domain (Optional)
+
+1. Go to "Settings" → "Domains"
+2. Add your custom domain
+3. Configure DNS as instructed by Vercel
+
+### Deploy to Other Platforms
+
+The application is compatible with any platform that supports Next.js 14:
+- **Netlify**: Use the Next.js runtime
+- **Railway**: Auto-detects Next.js
+- **DigitalOcean App Platform**: Select Next.js as framework
+
+Ensure all environment variables are configured in your deployment platform.
 
 
 

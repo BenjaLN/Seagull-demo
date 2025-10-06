@@ -4,7 +4,7 @@
  */
 
 export type Pier = "Bro 3" | "Bro 5" | "Bro 7" | "Bro 9" | "Bro 11" | "Bro 4" | "Bro 6" | "Bro 8"
-export type BerthStatus = "available" | "booked"
+export type BerthStatus = "available" | "booked" | "occupied"
 
 export interface Booking {
   id: string

@@ -31,7 +31,7 @@ export interface MockBooking {
   guest_phone: string
   start_at: string
   end_at: string
-  status: 'reserved' | 'checked_in' | 'checked_out' | 'cancelled'
+  status: 'reserved' | 'checked_in' | 'checked_out' | 'cancelled' | 'booked'
   payment_status: 'pending' | 'paid' | 'refunded'
   amount: number
   boat_name: string

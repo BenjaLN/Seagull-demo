@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{}"
+self.__REACT_LOADABLE_MANIFEST='{"components/admin/AdminMap.tsx -> react-leaflet":{"id":9036,"files":["static/chunks/36.5a1859eb4f240c2c.js"]},"components/admin/BerthsLayer.tsx -> react-leaflet":{"id":9036,"files":["static/chunks/36.5a1859eb4f240c2c.js"]}}';

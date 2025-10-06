@@ -1,4 +1,4 @@
-// File: /Users/benjaminnielsen/Seagull - Cursor/Admin - Seagull:Rungsted/app/admin/rungsted-havn/page.tsx
+// File: /Users/anton/Desktop/Seagull/Kode/demo/Seagull-demo/app/admin/rungsted-havn/page.tsx
 import * as entry from '../../../../../app/admin/rungsted-havn/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

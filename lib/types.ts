@@ -1,6 +1,6 @@
 export type SpotStatus = 'ledig' | 'reserveret' | 'optaget'
 
-export type BookingStatus = 'reserved' | 'checked_in' | 'checked_out' | 'cancelled'
+export type BookingStatus = 'reserved' | 'checked_in' | 'checked_out' | 'cancelled' | 'booked'
 
 export interface Harbor {
   id: string
